@@ -1,4 +1,4 @@
-package by.it.group310902.kulik.lesson09;
+package by.it.group310902.drapeza.lesson09;
 
 import java.util.Collection;
 import java.util.Iterator;

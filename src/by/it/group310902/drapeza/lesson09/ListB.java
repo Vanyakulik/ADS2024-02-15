@@ -1,20 +1,20 @@
-package by.it.group310902.kulik.lesson09;
+package by.it.group310902.drapeza.lesson09;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ListC<E> implements List<E> {
+public class ListB<E> implements List<E> {
 
-    //Создайте аналог списка БЕЗ использования других классов СТАНДАРТНОЙ БИБЛИОТЕКИ
     int size = 0;
     E[] arr;
 
-    ListC()
+    ListB()
     {
         this.arr =(E[]) new Object[this.size];
     }
+    //Создайте аналог списка БЕЗ использования других классов СТАНДАРТНОЙ БИБЛИОТЕКИ
 
     /////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
@@ -142,62 +142,39 @@ public class ListC<E> implements List<E> {
         return -1;
     }
 
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        for(Object o : c){
-            if(!this.contains(o)){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        for(E e : c){
-            this.add(e);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
-        for(E e : c){
-            this.add(index, e);
-            index++;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        boolean result = true;
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && c.contains(this.arr[i])){
-                this.remove(this.arr[i]);
-                i--;
-            }
-        }
-        return result;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        boolean result = true;
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && !c.contains(this.arr[i])){
-                this.remove(this.arr[i]);
-                i--;
-            }
-        }
-        return result;
-    }
 
     /////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
     //////               Опциональные к реализации методы             ///////
     /////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
+
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {

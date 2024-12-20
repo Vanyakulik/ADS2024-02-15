@@ -56,3 +56,6 @@ TaskB.txt
 TaskC.txt
 
 .gitignore
+/src/by/it/group310902/karpechenko/
+
+/src/by/it/group310902/karpechenko/lesson09/

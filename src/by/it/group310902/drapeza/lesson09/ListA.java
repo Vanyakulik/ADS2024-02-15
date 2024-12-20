@@ -1,17 +1,18 @@
-package by.it.group310902.kulik.lesson09;
+package by.it.group310902.drapeza.lesson09;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ListC<E> implements List<E> {
+public class ListA<E> implements List<E> {
 
     //Создайте аналог списка БЕЗ использования других классов СТАНДАРТНОЙ БИБЛИОТЕКИ
+
     int size = 0;
     E[] arr;
 
-    ListC()
+    ListA()
     {
         this.arr =(E[]) new Object[this.size];
     }
@@ -62,142 +63,85 @@ public class ListC<E> implements List<E> {
         return this.size;
     }
 
-    @Override
-    public boolean remove(Object o) {
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && this.arr[i].equals(o)){
-                this.remove(i);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public void add(int index, E element) {
-        if(this.size == this.arr.length){
-            E[] temp = (E[]) new Object[this.arr.length * 2];
-            System.arraycopy(this.arr, 0, temp, 0, this.arr.length);
-            this.arr = temp;
-        }
-        for(int i = this.size; i > index; i--){
-            this.arr[i] = this.arr[i - 1];
-        }
-        this.arr[index] = element;
-        this.size++;
-    }
-
-    @Override
-    public E set(int index, E element) {
-        E data = this.arr[index];
-        this.arr[index] = element;
-        return data;
-    }
-
-
-    @Override
-    public boolean isEmpty() {
-        return this.size == 0;
-    }
-
-
-    @Override
-    public void clear() {
-        this.size = 0;
-        this.arr = (E[]) new Object[this.size];
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && this.arr[i].equals(o)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    @Override
-    public E get(int index) {
-        return this.arr[index];
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && this.arr[i].equals(o)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        for(int i = this.arr.length - 1; i >= 0; i--){
-            if(this.arr[i] != null && this.arr[i].equals(o)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        for(Object o : c){
-            if(!this.contains(o)){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        for(E e : c){
-            this.add(e);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
-        for(E e : c){
-            this.add(index, e);
-            index++;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        boolean result = true;
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && c.contains(this.arr[i])){
-                this.remove(this.arr[i]);
-                i--;
-            }
-        }
-        return result;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        boolean result = true;
-        for(int i = 0; i < this.arr.length; i++){
-            if(this.arr[i] != null && !c.contains(this.arr[i])){
-                this.remove(this.arr[i]);
-                i--;
-            }
-        }
-        return result;
-    }
 
     /////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
     //////               Опциональные к реализации методы             ///////
     /////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void add(int index, E element) {
+
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public E set(int index, E element) {
+        return null;
+    }
+
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public E get(int index) {
+        return null;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
