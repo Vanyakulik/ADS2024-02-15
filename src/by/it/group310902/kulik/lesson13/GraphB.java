@@ -65,7 +65,7 @@ class GraphB {
             graph.addEdge(A, B);
         }
 
-        if (graph.CycleCheck()) {
+        if (graph.CycleCheck())  {
             System.out.print("yes");
         } else {
             System.out.print("no");
